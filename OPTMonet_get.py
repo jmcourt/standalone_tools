@@ -1,6 +1,10 @@
+#! /usr/bin/env python
+
 # OPTMonet_get.py
 #
 # - J.M.C. Court, 2017
+#
+# Call as 'python OPTMonet_get.py'
 #
 # Produces a lightcurve from a number of given Monet files.
 #
