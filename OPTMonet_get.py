@@ -56,6 +56,7 @@ for obs in obss:
    cts=0
    try:
       f=fits.open(obs)[0]
+      assert f.header['TELESCOP']=='MONETS'
    except:
       print('Warning!  '+obs+' does not appear to be Monet fits file!')
       continue
@@ -118,6 +119,10 @@ for filtr in times.keys():
 
 pl.figure()
 for filtr in times.keys():
+   out=open('Monet_Out_'+filtr+'.csv','w')
+   for i in range(len(times[filtr])):
+      out.writelines((str(times[filtr][i]),',',str(rates[filtr][i]),'\n'))
+   out.close()
    pl.plot(times[filtr],rates[filtr],label=filtr)
 pl.legend()
 pl.xlabel('MJD')
